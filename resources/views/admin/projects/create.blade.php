@@ -27,6 +27,21 @@
         
                     <label class="form-label">Title: </label>
                     <input type="text" name="name" class="form-control">
+
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select name="type_id" class="form-select">
+                            <option value=""></option>
+
+                            @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+
+                            
+                                
+                            @endforeach
+                            
+                        </select>
+                    </div>
         
                     <label class="form-label">Description: </label>
                     <textarea type="text" name="description" class="form-control"></textarea>

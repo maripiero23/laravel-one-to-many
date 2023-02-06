@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
-
-
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -30,8 +29,10 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view("admin.projects.create");
+    {   
+        //Recupero un array con tutte le tipologie del mio db
+        $types = Type::all();
+        return view("admin.projects.create", compact("types"));
     }
 
     /**
