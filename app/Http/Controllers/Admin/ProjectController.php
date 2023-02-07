@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Type;
@@ -41,9 +42,9 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $data= $request->all();
+        $data= $request->validated();
 
         //Nella tabella mi creo una nuova riga con i dati che sono appena rrivati dal creat/form
         $project= Project::create($data);
@@ -75,9 +76,13 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project= Project::findOrFail($id);
+        $types = Type::all();
+
 
         return view("admin.projects.edit", [
-            "project"=>$project]);
+            "project"=>$project,
+            "types"=>$types
+        ]);
 
     }
 

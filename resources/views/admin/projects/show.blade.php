@@ -11,6 +11,8 @@
       <p class="card-text">{{$project->description}}</p>
       <p class="card-text">{{$project->user_id}}</p>
       <p class="card-text">{{$project->github_link}}</p>
+      <p class="card-text">{{$project->Type->name}}</p>
+
 
 
       <a href="#" class="btn btn-primary">Go somewhere</a>

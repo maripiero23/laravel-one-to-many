@@ -30,6 +30,23 @@
                     {{-- L'unica differenza che la view edit ha con la view create è che i campi devono avere, al loro interno,
                     già il valore salvato nel database, userò quindi il VALUE --}}
                     <input type="text" name="name" class="form-control" value="{{$project->name}}">
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select name="type_id" class="form-select">
+                            <option value=""></option>
+
+                            @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+
+                            
+                                
+                            @endforeach
+                            
+                        </select>
+                    </div>
+
         
                     <label class="form-label">Description: </label>
                     {{--Per le textare non c'è il VALUE ma bisogna scrivere dentro i tag--}}
